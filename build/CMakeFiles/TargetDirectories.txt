@@ -1,0 +1,3 @@
+C:/Users/Riku2/DATA/AI_trash_can/build/CMakeFiles/opencv_test.dir
+C:/Users/Riku2/DATA/AI_trash_can/build/CMakeFiles/edit_cache.dir
+C:/Users/Riku2/DATA/AI_trash_can/build/CMakeFiles/rebuild_cache.dir
