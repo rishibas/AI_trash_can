@@ -3,6 +3,7 @@
 ## 目次
 
 1. [1-OpenCVの環境構築(Windows)](#1-OpenCVの環境構築)
+2. [2-サーボモーターを駆動させてみよう(Arduino IDE)(#2-サーボモーターを駆動させてみよう)]
 
 <br>
 
@@ -74,7 +75,22 @@ Opencvのコードを取得します。下記にあるリンクに飛び、versi
 
 ダウンロード後、Opencvディレクトリ内に```build```ディレクトリを作成します。
 
+<br>
 
+### サーボモーターを駆動させてみよう
+
+#### エラー集
+
+```bash
+A fatal error occurred: Failed to connect to ESP32: No serial data received
+
+Failed uploading: uploading error: exit status 2
+```
+
+<解決策>
+stack overflow
+You should tried with new esp32 and the problem was gone. 
+maybe esp32 is somehow damaged...
 
 <br>
 
