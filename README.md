@@ -3,7 +3,8 @@
 ## 目次
 
 1. [1-OpenCVの環境構築(Windows)](#1-OpenCVの環境構築)
-2. [2-サーボモーターを駆動させてみよう(Arduino IDE)(#2-サーボモーターを駆動させてみよう)]
+2. [2-サーボモーターを駆動させてみよう](#2-サーボモーターを駆動させてみよう)
+3. [3-ハードウェア選定](#3-ハードウェア選定)
 
 <br>
 
@@ -93,6 +94,12 @@ You should tried with new esp32 and the problem was gone.
 maybe esp32 is somehow damaged...
 
 <br>
+
+### ハードウェア選定
+
+#### モーター
+
+
 
 ### 参考資料
 ---
