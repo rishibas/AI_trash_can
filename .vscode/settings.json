@@ -1,0 +1,10 @@
+//settings.jsonとはvscodeの設定をjson形式で保存しているファイル
+
+{
+    "arduino.clearOutputOnBuild": true,
+    "arduino.enableUSBDetection": true,
+    "arduino.useArduinoCli": true,
+    "arduino.path": " C:\\Users\\Riku2\\ArduinoCLI\\arduino-cli_1.3.1_Windows_64bit",
+    "arduino.commandPath": "C:\\Users\\Riku2\\ArduinoCLI\\arduino-cli_1.3.1_Windows_64bit\\arduino-cli.exe",
+    "arduino.disableIntelliSenseAutoGen": true
+}
