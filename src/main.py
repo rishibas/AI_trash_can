@@ -1,22 +1,18 @@
 from ultralytics import YOLO
 import cv2
-import serial
 import time
+import socket
+
+#IP address of ESP32
+esp32_ip = "192.168.4.1"
+port = 8000
+
+# ESP32に接続
+client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+client.connect((esp32_ip, port))
 
 # Load a model
 model = YOLO("best_1.pt")
-
-ser = None
-# # setup serial communication
-ser = serial.Serial(
-    port = 'COM4',
-    baudrate= 115200,
-    timeout=1,
-    rtscts = False,
-    dsrdtr = False,
-    )
-print(ser.name)
-ser.setDTR(False) #serial.Serial()でArduinoがリセットされるのを防ぐ役割
 
 # start Web camera.
 # カメラの解像度が低い場合は、ここでcap.set()で高い解像度を設定することを推奨
@@ -45,9 +41,8 @@ while cap.isOpened():
         if (label == "metal" and conf >= 80):
             print("検出label", label)
             print("信頼度", conf)
-            if ser is not None:
-                print("====")
-                ser.write(b'1')
+            # ESP32にデータを送信
+            client.sendall(b'C')
             time.sleep(1)
 
 
@@ -67,6 +62,7 @@ while cap.isOpened():
         break
 
 # ループ終了後、リソースを解放
-ser.close()
+            #　接続を閉じる
+client.close()
 cap.release()
 cv2.destroyAllWindows()
