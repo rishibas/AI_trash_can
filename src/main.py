@@ -38,13 +38,25 @@ while cap.isOpened():
         class_id = int(box.cls)
         conf = float(box.conf) * 100 #%に変換
         label = res[0].names[class_id]
-        if (label == "metal" and conf >= 80):
+        print(label)
+        if (label == "metal" and conf >= 43):
             print("検出label", label)
             print("信頼度", conf)
             # ESP32にデータを送信
             client.sendall(b'C')
             time.sleep(1)
-
+        elif (label == "plastic bottle" and conf >= 40):
+            print("検出label", label)
+            print("信頼度", conf)
+            # ESP32にデータを送信
+            client.sendall(b'P')
+            time.sleep(1)
+        elif (label == "Paper" and conf >= 50):
+            print("検出label", label)
+            print("信頼度", conf)
+            # ESP32にデータを送信
+            client.sendall(b'K')
+            time.sleep(1)
 
     # 2. 結果の描画
     # .plot() メソッドで、検出結果が描画された NumPy 配列（画像）を取得
@@ -61,6 +73,15 @@ while cap.isOpened():
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
 
+    if cv2.waitKey(30) & 0xFF == ord('a'):
+        client.sendall(b'a')
+
+    if cv2.waitKey(30) & 0xFF == ord('b'):
+        client.sendall(b'b')
+    
+    if cv2.waitKey(30) & 0xFF == ord('d'):
+        client.sendall(b'd')
+        
 # ループ終了後、リソースを解放
             #　接続を閉じる
 client.close()
